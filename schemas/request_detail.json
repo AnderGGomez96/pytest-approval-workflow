@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RequestDetail",
+  "type": "object",
+  "required": ["before", "proposed", "applied"],
+  "properties": {
+    "before": {"type": "object"},
+    "proposed": {"type": "object"},
+    "applied": {"type": "object"}
+  },
+  "additionalProperties": true
+}

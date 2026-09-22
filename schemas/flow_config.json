@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FlowConfigOut",
+  "type": "object",
+  "required": ["levels", "active"],
+  "properties": {
+    "levels": {"enum": [1, 2]},
+    "active": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

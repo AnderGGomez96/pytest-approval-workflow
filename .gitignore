@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.env
+reports/
+# Guia interna de automatización (documento sin seguimiento)
+guia-automation.md

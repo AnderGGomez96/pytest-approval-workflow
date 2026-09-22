@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ResourceOut",
+  "type": "object",
+  "required": ["id", "name", "values"],
+  "properties": {
+    "id": {"type": "integer"},
+    "name": {"type": "string"},
+    "values": {"type": "object"}
+  },
+  "additionalProperties": true
+}

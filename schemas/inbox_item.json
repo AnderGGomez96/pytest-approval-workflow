@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "InboxItem",
+  "type": "object",
+  "required": ["id", "status", "created_at"],
+  "properties": {
+    "id": {"type": "integer"},
+    "status": {"enum": ["pending", "approved_l1", "approved", "rejected", "cancelled"]},
+    "created_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": true
+}

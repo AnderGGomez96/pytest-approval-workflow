@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RequestOut",
+  "type": "object",
+  "required": ["id", "status", "before", "proposed", "comment"],
+  "properties": {
+    "id": {"type": "integer"},
+    "status": {"enum": ["pending", "approved_l1", "approved", "rejected", "cancelled"]},
+    "before": {"type": "object"},
+    "proposed": {"type": "object"},
+    "comment": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "level_1": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "level_2": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "required": [
+    "level_1",
+    "level_2"
+  ]
+}

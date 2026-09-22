@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RequestLogEntry",
+  "type": "object",
+  "required": ["created_at", "actor_name", "action", "from_status", "to_status"],
+  "properties": {
+    "created_at": {"type": "string", "format": "date-time"},
+    "actor_name": {"type": "string"},
+    "action": {"type": "string"},
+    "from_status": {"type": ["string", "null"]},
+    "to_status": {"type": "string"}
+  },
+  "additionalProperties": true
+}
