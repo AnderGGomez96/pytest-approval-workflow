@@ -13,6 +13,7 @@ from helpers.flow import (
 )
 from helpers.inbox import received_ids, sent_ids
 from helpers.request_flow import approve, create_request
+from helpers.resources import get_resource
 from schemas.validator import validate
 
 pytestmark = pytest.mark.flow
@@ -283,9 +284,7 @@ def test_put_flow_config_desactivar_no_cancela_solicitud_en_vuelo(
     assert l2["status"] == "approved"
 
     # Evidencia de negocio: el recurso queda aplicado por merge, no reemplazado.
-    resource = requester_api.get(f"/resources/{CUENTA_PRINCIPAL['id']}")
-    assert resource.status_code == 200, resource.text
-    body = resource.json()
+    body = get_resource(requester_api, CUENTA_PRINCIPAL["id"])
     validate(body, "resource")
     assert body["values"] == {**CUENTA_PRINCIPAL["values"], "saldo": 999}
     assert body["values"]["moneda"] == "EUR"

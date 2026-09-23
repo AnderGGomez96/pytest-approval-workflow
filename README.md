@@ -14,11 +14,12 @@ pytest-approval-workflow/
 │   ├── tokens.py
 │   ├── payloads.py
 │   └── resources.py
-├── helpers/              # Utilidades de preparación y acciones (health, flow, requests)
+├── helpers/              # Utilidades de preparación y acciones (health, flow, requests, inbox, resources)
 │   ├── health.py
 │   ├── flow.py
 │   ├── request_flow.py
-│   └── inbox.py
+│   ├── inbox.py
+│   └── resources.py
 ├── schemas/              # Contratos JSON Schema + validador
 │   ├── *.json
 │   └── validator.py
@@ -26,7 +27,20 @@ pytest-approval-workflow/
 │   ├── test_health.py
 │   ├── test_auth.py
 │   ├── test_flow_config.py
-│   └── test_approval_flow.py
+│   ├── test_approval_flow.py
+│   ├── test_conciliar_inactive.py
+│   ├── test_conciliar_active.py
+│   ├── test_request_1level.py
+│   ├── test_request_2levels.py
+│   ├── test_request_self_approval.py
+│   ├── test_request_cancel.py
+│   ├── test_request_detail.py
+│   ├── test_request_detail_visibility.py
+│   ├── test_inbox_received.py
+│   ├── test_inbox_sent.py
+│   ├── test_reset.py
+│   ├── test_identity.py
+│   └── test_resources.py
 ├── conftest.py           # Fixtures globales (URL base, espera de /health, reset, clientes por rol)
 ├── pytest.ini            # Configuración de pytest
 └── requirements.txt      # Dependencias (pytest, requests, jsonschema)
