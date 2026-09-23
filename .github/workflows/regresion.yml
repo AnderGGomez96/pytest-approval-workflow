@@ -40,14 +40,14 @@ jobs:
         run: |
           mkdir -p reports
           if [ "$SUITE" = "all" ]; then
-            pytest -q --junitxml=reports/junit.xml
+            pytest -q --junitxml=reports/junit.xml --html=reports/report.html --self-contained-html
           else
-            pytest -q -m regresion --junitxml=reports/junit.xml
+            pytest -q -m regresion --junitxml=reports/junit.xml --html=reports/report.html --self-contained-html
           fi
 
       - name: Upload report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: junit-${{ env.SUITE }}
-          path: reports/junit.xml
+          name: report-${{ env.SUITE }}
+          path: reports/
