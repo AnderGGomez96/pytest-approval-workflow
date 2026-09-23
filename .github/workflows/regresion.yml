@@ -4,6 +4,12 @@ on:
   repository_dispatch:
     types: [approval-workflow-deployed]
   workflow_dispatch:
+    inputs:
+      suite:
+        description: "Subconjunto a ejecutar"
+        type: choice
+        options: [regresion, all]
+        default: regresion
   schedule:
     - cron: "0 3 * * *"
 
@@ -12,11 +18,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  regresion:
+  suite:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     env:
       APPROVAL_BASE_URL: ${{ vars.APPROVAL_BASE_URL }}
+      SUITE: ${{ github.event.inputs.suite || 'regresion' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -28,5 +35,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run regression suite
-        run: pytest -q -m regresion
+      - name: Run suite
+        continue-on-error: ${{ github.event.inputs.suite == 'all' }}
+        run: |
+          mkdir -p reports
+          if [ "$SUITE" = "all" ]; then
+            pytest -q --junitxml=reports/junit.xml
+          else
+            pytest -q -m regresion --junitxml=reports/junit.xml
+          fi
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-${{ env.SUITE }}
+          path: reports/junit.xml
