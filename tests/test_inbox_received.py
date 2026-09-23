@@ -24,6 +24,7 @@ def _item_recibido(items: list[dict], request_id: int) -> dict | None:
     return next((item for item in items if item["id"] == request_id), None)
 
 
+@pytest.mark.regresion
 def test_recibidas_visibilidad_por_estado(
     api, admin_api, requester_api, approver_l1_api, approver_l2_api
 ):

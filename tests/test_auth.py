@@ -14,6 +14,7 @@ from helpers.flow import activate_flow
             (TOKENS["admin"], 200,  ""),
         ]
 )
+@pytest.mark.regresion
 def test_solo_admin_activa_flujo(api, admin_api, token, expected_status_code, detail):
 
     # Precondición: definir aprobadores por nivel
@@ -55,6 +56,7 @@ def test_solo_admin_activa_flujo(api, admin_api, token, expected_status_code, de
             (TOKENS["admin"], 200,  ""),
         ]
 )
+@pytest.mark.regresion
 def test_solo_admin_desactiva_flujo(api, admin_api, token, expected_status_code, detail):
 
     # Precondición: flujo activo

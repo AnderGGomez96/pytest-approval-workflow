@@ -35,6 +35,7 @@ def _assert_business_detail(detail) -> None:
     assert all(isinstance(item, str) for item in detail), detail
 
 
+@pytest.mark.regresion
 def test_solicitante_unico_aprobador_queda_estacionada(admin_api, requester_api, api):
     """Con `[2]/[]` la solicitud de 2 queda estacionada: ningún aprobador la recibe, sigue en las
     enviadas de 2 y nadie puede resolverla (AC-5.2, S-20)."""

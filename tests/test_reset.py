@@ -52,6 +52,7 @@ def _snapshot(admin_api, requester_api, anonymous_api) -> dict:
     }
 
 
+@pytest.mark.regresion
 def test_reset_restaura_estado_sembrado_tras_mutaciones(
     admin_api, requester_api, approver_l1_api, approver_l2_api, anonymous_api
 ):

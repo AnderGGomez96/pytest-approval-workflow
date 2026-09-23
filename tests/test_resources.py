@@ -41,6 +41,7 @@ def test_listado_recursos_seed(admin_api):
     assert por_id[CUENTA_PRINCIPAL["id"]]["values"]["saldo"] == CUENTA_PRINCIPAL["values"]["saldo"]
 
 
+@pytest.mark.regresion
 def test_recurso_refleja_aplicado_e_intacto(
     admin_api, requester_api, approver_l1_api, approver_l2_api
 ):

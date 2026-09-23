@@ -29,6 +29,7 @@ def _assert_business_detail(detail) -> None:
     assert all(isinstance(item, str) for item in detail), detail
 
 
+@pytest.mark.regresion
 def test_dos_niveles_rechazo_l1_no_llega_a_l2(
     admin_api, requester_api, approver_l1_api, approver_l2_api
 ):
@@ -112,6 +113,7 @@ def test_dos_niveles_rechazo_l2_no_aplica(
     assert detail_after_reject["applied"] == detail_after_reject["before"] == CUENTA_PRINCIPAL["values"]
 
 
+@pytest.mark.regresion
 def test_dos_niveles_l2_sin_l1_404(admin_api, requester_api, approver_l2_api):
     """Resolver en L2 con la solicitud en `pending` (sin L1) es no-visible: `404` sin transición."""
 
