@@ -19,8 +19,9 @@ def wait_until_reade(api_base_url:str)->None:
             if requests.get(f"{api_base_url}/health", timeout=2.0).status_code==200:
                 return
         except requests.RequestException:
-            time.sleep(0.2)
-        pytest.fail(f"La API no respondio /health en 30s: {api_base_url}")
+            pass
+        time.sleep(0.2)
+    pytest.fail(f"La API no respondio /health en 30s: {api_base_url}")
 
 @pytest.fixture(autouse=True)
 def reset_stat(api_base_url:str)->None:

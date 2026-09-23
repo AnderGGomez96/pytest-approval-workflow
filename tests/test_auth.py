@@ -1,7 +1,7 @@
 import pytest
 from schemas.validator import validate
-from helpers.flow import get_flow_config
-from data.tokens import TOKENS
+from helpers.flow import get_flow_config, set_approvers
+from data.tokens import TOKENS, USER_IDS
 from helpers.flow import activate_flow
 
 @pytest.mark.parametrize(
@@ -14,7 +14,14 @@ from helpers.flow import activate_flow
             (TOKENS["admin"], 200,  ""),
         ]
 )
-def test_solo_admin_activa_flujo(api, token, expected_status_code, detail):
+def test_solo_admin_activa_flujo(api, admin_api, token, expected_status_code, detail):
+
+    # Precondición: definir aprobadores por nivel
+    set_approvers(admin_api, approvers={
+            "level_1":[USER_IDS["approver_l1"]],
+            "level_2":[USER_IDS["approver_l2"]]
+        })
+
 
     resp = api(token).put("/flow/config", json={"active": True, "levels": 2})
     assert resp.status_code == expected_status_code, resp.text
@@ -72,6 +79,3 @@ def test_solo_admin_desactiva_flujo(api, admin_api, token, expected_status_code,
         # Evidencia de negocio: El flujo no se encuentra activo.
         flow_config = get_flow_config(api(TOKENS["admin"]))
         assert  flow_config["active"] == True
-
-
-    

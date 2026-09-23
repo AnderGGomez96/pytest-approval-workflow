@@ -8,3 +8,11 @@ __pycache__/
 reports/
 # Guia interna de automatización (documento sin seguimiento)
 guia-automation.md
+# Documentacion de desarrollo (documento sin seguimiento)
+docs/handoff.md
+# Flujo agentico: no se versiona
+AGENTS.md
+.opencode/
+specs/
+.local/
+docs/

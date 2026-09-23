@@ -29,3 +29,13 @@ def cancel (requester_api:ApiClient, request_id:int)->dict:
     resp= requester_api.post (f"/requests/{request_id}/cancel")
     assert resp.status_code == 200, resp.text
     return resp.json()
+
+def get_request_detail (api:ApiClient, request_id:int)->dict:
+    resp= api.get (f"/requests/{request_id}")
+    assert resp.status_code == 200, resp.text
+    return resp.json()
+
+def get_request_log (api:ApiClient, request_id:int)->list[dict]:
+    resp= api.get (f"/requests/{request_id}/log")
+    assert resp.status_code == 200, resp.text
+    return resp.json()
