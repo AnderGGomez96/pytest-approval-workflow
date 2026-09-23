@@ -25,7 +25,8 @@ pytest-approval-workflow/
 ├── tests/                # Casos de prueba
 │   ├── test_health.py
 │   ├── test_auth.py
-│   └── test_environment.py
+│   ├── test_flow_config.py
+│   └── test_approval_flow.py
 ├── conftest.py           # Fixtures globales (URL base, espera de /health, reset, clientes por rol)
 ├── pytest.ini            # Configuración de pytest
 └── requirements.txt      # Dependencias (pytest, requests, jsonschema)

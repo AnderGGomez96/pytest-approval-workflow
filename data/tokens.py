@@ -7,6 +7,7 @@ TOKENS = {
     "approver_l2":"token-aprobador-ws-l2",
     "override_l1":"token-aprobador-override-l1",
     "override_l2":"token-aprobador-override-l2",
+    "requester_override":"token-solicitante-override",
     "inactive":"token-inactivo"
 }
 
