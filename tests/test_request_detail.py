@@ -23,6 +23,7 @@ APROBADORES_2_NIVELES = {
 }
 
 
+@pytest.mark.regresion
 def test_detalle_evoluciona_pending_l1_aprobado(
     admin_api, requester_api, api, approver_l1_api, approver_l2_api
 ):
@@ -161,6 +162,7 @@ def test_detalle_rechazada_y_cancelada_no_aplica(
     assert resource_cancelled["values"] == CUENTA_PRINCIPAL["values"]
 
 
+@pytest.mark.regresion
 def test_log_registra_creacion_y_transiciones(
     admin_api, requester_api, api, approver_l1_api, approver_l2_api
 ):

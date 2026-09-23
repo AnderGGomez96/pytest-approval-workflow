@@ -59,6 +59,7 @@ def valid_request_id(admin_api, requester_api) -> int:
 
 @pytest.mark.parametrize(("credential", "expected_detail"), CREDENCIALES)
 @pytest.mark.parametrize(("method", "path_template", "body"), ENDPOINTS)
+@pytest.mark.regresion
 def test_endpoints_sin_token_o_invalido_401(
     api,
     admin_api,

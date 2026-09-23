@@ -29,6 +29,7 @@ def _assert_business_detail(detail) -> None:
     assert all(isinstance(item, str) for item in detail), detail
 
 
+@pytest.mark.regresion
 def test_cancelar_pending(admin_api, requester_api, api):
     """Cancelar una solicitud `pending` la deja `cancelled`, sin aplicar el recurso y sin
     mostrarla en las recibidas de ningún aprobador (S-21)."""
@@ -82,6 +83,7 @@ def test_cancelar_pending(admin_api, requester_api, api):
     assert log[1]["actor_name"] == log[0]["actor_name"]
 
 
+@pytest.mark.regresion
 def test_cancelar_approved_l1(admin_api, requester_api, api):
     """Tras aprobar L1, el solicitante cancela sin pasar por L2: `cancelled`, el L2 deja de
     verla, el recurso sigue intacto y el log registra approved_l1 -> cancelled (S-21)."""

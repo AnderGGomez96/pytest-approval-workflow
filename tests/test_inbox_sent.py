@@ -21,6 +21,7 @@ def _timestamp(item: dict) -> datetime:
     return datetime.fromisoformat(item["created_at"].replace("Z", "+00:00"))
 
 
+@pytest.mark.regresion
 def test_enviadas_incluye_siempre_mi_solicitud(
     admin_api,
     requester_api,

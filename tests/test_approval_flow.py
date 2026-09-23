@@ -15,6 +15,7 @@ from schemas.validator import validate
 
 
 @pytest.mark.request
+@pytest.mark.regresion
 def test_flujo_dos_niveles_aplica_cambios_al_aprobar_l2(
     admin_api,
     requester_api,

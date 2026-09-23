@@ -16,6 +16,7 @@ def _conciliar(requester_api, path: str, body: dict):
     return requester_api.post(path, json=body)
 
 
+@pytest.mark.regresion
 def test_conciliar_flujo_inactivo_aplica_directo_sin_solicitud(
     admin_api,
     requester_api,

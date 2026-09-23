@@ -19,6 +19,7 @@ from schemas.validator import validate
 pytestmark = pytest.mark.flow
 
 
+@pytest.mark.regresion
 def test_put_flow_approvers_admin_define_y_get_confirma(admin_api):
     """El admin define aprobadores por nivel y el GET devuelve lo mismo."""
 
@@ -130,6 +131,7 @@ def test_put_flow_approvers_roles(api, admin_api, token, expected_status_code, d
         assert unchanged["level_2"] == []
 
 
+@pytest.mark.regresion
 def test_put_flow_config_dos_niveles_activo(admin_api):
     """El admin activa el flujo de 2 niveles con aprobadores y el GET lo confirma."""
 
@@ -202,6 +204,7 @@ def test_put_flow_config_desactivar_sin_aprobadores(admin_api):
         ({"level_1": [], "level_2": []}, 1, ["nivel 1 sin aprobadores"]),
     ],
 )
+@pytest.mark.regresion
 def test_put_flow_config_activo_sin_aprobadores_422(admin_api, approvers, levels, missing_levels):
     """Activar el flujo sin aprobadores en un nivel requerido se rechaza sin persistir."""
 
@@ -244,6 +247,7 @@ def test_put_flow_config_levels_invalido_422(admin_api, levels):
 
 
 @pytest.mark.request
+@pytest.mark.regresion
 def test_put_flow_config_desactivar_no_cancela_solicitud_en_vuelo(
     admin_api, requester_api, approver_l1_api, approver_l2_api
 ):
@@ -419,6 +423,7 @@ def test_put_flow_config_activo_un_nivel_no_pasa_a_dos_sin_l2(admin_api):
     assert confirm == {"levels": 1, "active": True}
 
 
+@pytest.mark.regresion
 def test_put_flow_overrides_persiste_y_get_confirma(admin_api):
     """El admin define el override de un usuario y el GET devuelve exactamente lo mismo."""
 
@@ -599,6 +604,7 @@ def test_put_flow_overrides_roles(api, admin_api, token, expected_status_code, d
 
 @pytest.mark.inbox
 @pytest.mark.request
+@pytest.mark.regresion
 def test_override_total_pisa_aprobadores_ws(admin_api, api):
     """El override del solicitante pisa a los aprobadores del workspace: solo los suyos ven la solicitud."""
 
@@ -642,6 +648,7 @@ def test_override_total_pisa_aprobadores_ws(admin_api, api):
 
 @pytest.mark.inbox
 @pytest.mark.request
+@pytest.mark.regresion
 def test_override_solo_l2_mantiene_l1_ws(admin_api, api):
     """Un override que solo define L2 deja el L1 en manos de los aprobadores del workspace."""
 

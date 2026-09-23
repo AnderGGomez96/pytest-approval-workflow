@@ -23,6 +23,7 @@ APROBADORES_L1 = {
 }
 
 
+@pytest.mark.regresion
 def test_un_nivel_aprobar_aplica_por_merge(admin_api, requester_api, approver_l1_api):
     """Aprobar en 1 nivel aplica el cambio por merge, el detalle refleja el applied y el log
     registra pending -> approved con el actor real."""
@@ -69,6 +70,7 @@ def test_un_nivel_aprobar_aplica_por_merge(admin_api, requester_api, approver_l1
     assert log[1]["actor_name"] != log[0]["actor_name"]
 
 
+@pytest.mark.regresion
 def test_un_nivel_rechazar_no_aplica(admin_api, requester_api, approver_l1_api):
     """Rechazar en 1 nivel deja el recurso intacto y el log registra pending -> rejected."""
 
@@ -197,6 +199,7 @@ def test_un_nivel_aprobador_no_asignado_404(admin_api, requester_api, approver_l
 
 
 @pytest.mark.parametrize("action", ["approve", "reject"])
+@pytest.mark.regresion
 def test_solicitante_no_resuelve_su_solicitud(
     admin_api, requester_api, approver_l1_api, action
 ):
@@ -288,6 +291,7 @@ def test_resolver_solicitud_id_invalido(
         ("reject", "rejected"),
     ],
 )
+@pytest.mark.regresion
 def test_doble_resolucion_409(
     api, admin_api, requester_api, approver_l1_api, first_action, final_status
 ):

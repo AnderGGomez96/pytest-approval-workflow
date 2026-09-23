@@ -39,6 +39,7 @@ def _assert_sin_solicitud(api, requester_api):
         assert received_ids(api(token)) == []
 
 
+@pytest.mark.regresion
 def test_conciliar_flujo_activo_crea_solicitud_pendiente(admin_api, requester_api):
     """Con 2 niveles activo el conciliar crea una solicitud `pending` con before/proposed exactos y
     deja el recurso intacto (AC-2.1, S-08/S-09/S-11)."""
