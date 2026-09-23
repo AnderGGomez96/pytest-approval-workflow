@@ -1,6 +1,7 @@
 import pytest
 from helpers.health import check_health
 
+@pytest.mark.smoke
 @pytest.mark.regresion
 def test_health_check(admin_api):
     """Verifica que la API responde /health y devuelve un JSON con status=ok"""
