@@ -1,0 +1,32 @@
+name: Regresión e2e approval-workflow
+
+on:
+  repository_dispatch:
+    types: [approval-workflow-deployed]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
+
+concurrency:
+  group: regresion-approval-live
+  cancel-in-progress: false
+
+jobs:
+  regresion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      APPROVAL_BASE_URL: ${{ vars.APPROVAL_BASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run regression suite
+        run: pytest -q -m regresion
