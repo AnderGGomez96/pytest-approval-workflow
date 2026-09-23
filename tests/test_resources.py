@@ -12,6 +12,7 @@ _SEED = (CUENTA_PRINCIPAL, CAJA_CHICA, FONDO_RESERVA)
 _PROPUESTO = {"saldo": 999}
 
 
+@pytest.mark.smoke
 def test_listado_recursos_seed(admin_api):
     """GET /resources devuelve los 3 recursos del seed y GET /resources/{id} coincide con el listado."""
 

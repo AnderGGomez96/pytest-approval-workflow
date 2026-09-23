@@ -1,5 +1,7 @@
 # pytest-approval-workflow
 
+[![Regresión e2e approval-workflow](https://github.com/AnderGGomez96/pytest-approval-workflow/actions/workflows/regresion.yml/badge.svg?branch=main)](https://github.com/AnderGGomez96/pytest-approval-workflow/actions/workflows/regresion.yml)
+
 Suite de pruebas automatizadas black-box (pytest) para la API `approval-workflow`.
 Este repositorio no contiene la API: solo el cliente HTTP, los datos de prueba,
 los helpers, los esquemas de contrato y los casos de prueba que la consumen por HTTP.
