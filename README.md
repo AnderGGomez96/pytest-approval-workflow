@@ -110,4 +110,4 @@ Requisito: Python 3.13.
 
 ## Licencia y contacto
 
-MIT. Contacto: anderggomez96@gmail.com · [LinkedIn](https://www.linkedin.com/in/anderson-gomez-gomez-672b86204/)
+MIT. Contacto: anderggomez96@gmail.com · [LinkedIn](https://www.linkedin.com/in/anderson-gomez-gomez/)
